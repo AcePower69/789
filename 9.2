@@ -1,0 +1,16 @@
+static void Main() {
+    String text = File.ReadAllText("C:\\File.txt", Encoding.UTF8);
+    int min = text.Length;
+    String min_word = "";
+    text = text.Trim(new char[] {'.', ',', '!', '?', '"'});
+ 
+    String[] words = text.Split(new char[] { ' ' });
+    foreach (String w in words) {
+        if (w.Length < min) {
+            min = w.Length;
+            min_word = w;
+        }
+    }
+ 
+    Console.WriteLine("'{0}' - наиболее короткое слово, длина {1}", min_word, min);
+}
