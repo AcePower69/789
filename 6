@@ -1,0 +1,35 @@
+static void Main()
+{
+    int n = ReadInt("n = ", (x) => x > 0);
+    int m = ReadInt("m = ", (x) => x > 0);
+ 
+    int[,] array = new int[n, m];
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            array[i, j] = ReadInt(string.Format("array[{0}, {1}] = ", i + 1, j + 1));
+            if (array[i, j] < 0 && array[i, j] % 3 != 0) array[i, j] = -array[i, j];
+        }
+    }
+ 
+    PrintArray(array);
+}
+ 
+static int ReadInt(string prompt, Predicate<int> predicate = null)
+{
+    int result;
+    do Console.Write(prompt);
+    while (!(int.TryParse(Console.ReadLine(), out result) && (predicate == null || predicate(result))));
+    return result;
+}
+ 
+static void PrintArray<T>(T[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+            Console.Write("{0} ", array[i, j]);
+        Console.WriteLine();
+    }
+}
