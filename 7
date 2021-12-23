@@ -1,0 +1,17 @@
+using System;
+using System.Linq;
+ 
+namespace ConsoleApplication12
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string str = "adxxxkll;adayyyyxxxa;d'cx'xwdywey";
+            var count1 = str.ToCharArray().Where((x) => x == 'x').Count();
+            var count2 = str.ToCharArray().Where((x) => x == 'y').Count();
+            Console.WriteLine("Количество символов: х = " + count1 + "; y = " + count2);
+            Console.ReadKey();
+        }
+    }
+}
