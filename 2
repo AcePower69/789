@@ -1,0 +1,10 @@
+int R = 15;
+Console.Write("x=");
+float x = float.Parse(Console.ReadLine());
+Console.Write("y=");
+float y = float.Parse(Console.ReadLine());
+if (Math.Sqrt(Math.Pow(x,2) + Math.Pow(y,2)) < Math.Pow(R,2))
+    Console.WriteLine("внутри");
+else if (Math.Sqrt(Math.Pow(x,2) + Math.Pow(y,2)) > Math.Pow(R,2))
+     Console.WriteLine("вне");
+else Console.WriteLine("на границе");
